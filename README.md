@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# react_ts_music
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### 介绍
 
-## Available Scripts
+React18 + Antd + ts 网易云项目
 
-In the project directory, you can run:
+#### 项目介绍
 
-### `npm start`
+使用React编写的云音乐PC Web项目，接口来源于开源的接口。修改了获取音乐的url接口，接口地址`/song/url`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### 项目技术分析
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+React: 作为基础框架，提供了声明式的编程模型，使得组件化开发更加高效。
+Redux: 作为状态管理工具，保证了应用的状态统一，使数据流清晰可控。
+styled-components: 利用CSS-in-JS的方式写样式，减少样式冲突，提高开发效率。
+Ant Design: 提供了一套高质量且符合蚂蚁金服设计规范的React UI组件，提升用户体验
 
-### `npm test`
+## 🍊功能亮点
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🔥采用最新的 `React 18` 和 `TypeScript` 开发，使用 `CRA` 构建项目。
+- 💪使用 `React-router-dom v7` 配置式路由表，路由懒加载。
+- 🌳CSS采用普通CSS和`styled-component`结合来编写（全局采用普通CSS、局部采用styled-component）。
+- ✨所有的函数式组件，为了避免不必要的渲染，全部使用memo进行包裹。
+- 🎨使用prettier和ESLint进行代码规范化管理。
+- 🚀axios网络请求封装，对API进行二次封装。
+- 🏃‍♂️使用react-redux和rtk工具进行状态管理。
 
-### `npm run build`
+## 💡未来计划 &#x1F4A1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 完善现有项目，修复功能 Bug，样式优化
+- 新增一些功能模块
+- 搜索页等其他模块
