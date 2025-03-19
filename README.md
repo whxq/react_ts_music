@@ -19,7 +19,7 @@ Ant Design: 提供了一套高质量且符合蚂蚁金服设计规范的React UI
 
 - 🔥采用最新的 `React 18` 和 `TypeScript` 开发，使用 `CRA` 构建项目。
 - 💪使用 `React-router-dom v7` 配置式路由表，路由懒加载。
-- 🌳CSS采用普通CSS和`styled-component`结合来编写（全局采用普通CSS、局部采用styled-component）。
+- 🌳CSS采用普通CSS和`styled-component`结合来编写（全局采用普通CSS、局部采用`styled-component`）。
 - ✨所有的函数式组件，为了避免不必要的渲染，全部使用memo进行包裹。
 - 🎨使用prettier和ESLint进行代码规范化管理。
 - 🚀axios网络请求封装，对API进行二次封装。

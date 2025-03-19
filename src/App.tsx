@@ -27,19 +27,25 @@ function App() {
   useEffect(() => {
     dispatch(fetchCurrentSongAction(1842025914))
   }, [])
+ 
   return (
     <div className="App">
       <AppHeader />
+
       {/* <h2>当前计数：{count}</h2>
       <h2>当前消息：{message}</h2> */}
       {/* <button onClick={handleChangeMessage}>修改message</button> */}
       <Suspense fallback="loading ...">
         <div>{useRoutes(routes)}</div>
       </Suspense>
+
       <AppFooter />
       {/* 播放工具栏 */}
+
       <AppPlayerBar />
+
       <BackTop />
+      
     </div>
   )
 }

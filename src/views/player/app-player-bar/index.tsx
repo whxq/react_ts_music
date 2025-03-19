@@ -35,6 +35,7 @@ const AppPlayerBar: FC<IProps> = (props) => {
   )
 
   const dispatch = useAppDispatch()
+  const [messageApi, contextHolder] = message.useMessage()
 
   /** 组件内的副作用操作 */
   //useEffect(() => {
@@ -162,6 +163,7 @@ const AppPlayerBar: FC<IProps> = (props) => {
     dispatch(changeLyricIndexAction(index))
     // console.log(lyrics[index]?.text)
     //展示对应的歌词
+    
     message.open({
       content: lyrics[index]?.text,
       key: 'lyric',
@@ -181,6 +183,7 @@ const AppPlayerBar: FC<IProps> = (props) => {
 
   return (
     <>
+     {contextHolder}
       <PlayBarWrapper className="sprite_playbar">
         <div className="content wrap-v2">
           <BarControl isPlaying={isPlaying}>
