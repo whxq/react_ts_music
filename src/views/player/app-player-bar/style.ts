@@ -9,7 +9,25 @@ export const PlayBarWrapper = styled.div`
   height: 52px;
   background-position: 0 0;
   background-repeat: repeat;
+  .lyric-display {
+    position: fixed;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border-radius: 4px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
   .content {
     display: flex;
     align-items: center;
@@ -19,6 +37,7 @@ export const PlayBarWrapper = styled.div`
     transform: translateX(-50%);
     bottom: 0;
     height: 47px;
+    width: 1030px;
   }
 `
 interface IBarControl {
@@ -27,7 +46,7 @@ interface IBarControl {
 export const BarControl = styled.div<IBarControl>`
   display: flex;
   align-items: center;
-
+  width: 137px;
   .btn {
     cursor: pointer;
   }
@@ -98,7 +117,7 @@ export const BarPlayerInfo = styled.div`
       .ant-slider {
         position: relative;
         top: -3px;
-        width: 493px;
+        width: 466px;
         margin-right: 10px;
 
         .ant-slider-rail {
@@ -167,7 +186,7 @@ export const BarOperator = styled.div<IBarOperator>`
   .right {
     display: flex;
     align-items: center;
-    width: 126px;
+    width: 173px;
     padding-left: 13px;
     background-position: -147px -248px;
 
@@ -207,6 +226,23 @@ export const BarOperator = styled.div<IBarOperator>`
       color: #ccc;
       width: 59px;
       background-position: -42px -68px;
+    }
+    .quality {
+      background: url(${require('@/assets/img/audio-quality.png')});
+      background-size: 45px 30px;
+      margin-left: 4px;
+      width: 41px;
+      text-align: center;
+      margin-bottom: 4px;
+      &:hover {
+        background: url(${require('@/assets/img/audio-quality-hover.png')});
+        background-size: 45px 30px;
+        margin-left: 4px;
+        width: 41px;
+        text-align: center;
+        margin-bottom: 4px;
+        cursor: pointer;
+      }
     }
   }
 `

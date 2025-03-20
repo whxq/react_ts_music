@@ -10,6 +10,7 @@ import './assets/css/index.less'
 import store from './store'
 import theme from './assets/theme'
 import App from '@/App'
+import { ConfigProvider } from 'antd'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
@@ -17,7 +18,9 @@ root.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <HashRouter>
-        <App />
+        <ConfigProvider>
+          <App />
+        </ConfigProvider>
       </HashRouter>
     </ThemeProvider>
   </Provider>

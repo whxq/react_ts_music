@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import { BarControl, BarOperator, BarPlayerInfo, PlayBarWrapper } from './style'
 import { Link } from 'react-router-dom'
-import { message, Slider } from 'antd'
+import { message, notification, Slider } from 'antd'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
 import { formatTime, getImageSize } from '@/utils/format'
 import { getSongPlayUrl } from '@/utils/handle-player'
@@ -22,6 +22,7 @@ const AppPlayerBar: FC<IProps> = (props) => {
   const [duration, setDuration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
   const [isSliding, setIsSliding] = useState(false)
+  const [currentLyric, setCurrentLyric] = useState<string>('')
   const audioRef = useRef<HTMLAudioElement>(null)
 
   const { currentSong, lyrics, layricIndex, playMode } = useAppSelector(
@@ -35,7 +36,7 @@ const AppPlayerBar: FC<IProps> = (props) => {
   )
 
   const dispatch = useAppDispatch()
-  const [messageApi, contextHolder] = message.useMessage()
+  // const [messageApi, contextHolder] = message.useMessage()
 
   /** 组件内的副作用操作 */
   //useEffect(() => {
@@ -161,14 +162,17 @@ const AppPlayerBar: FC<IProps> = (props) => {
     //匹配上歌词
     if (layricIndex === index || index === -1) return
     dispatch(changeLyricIndexAction(index))
-    // console.log(lyrics[index]?.text)
+    console.log(lyrics[index]?.text)
     //展示对应的歌词
-    
-    message.open({
-      content: lyrics[index]?.text,
-      key: 'lyric',
-      duration: 0
-    })
+
+    // message.open({
+    //   content: lyrics[index]?.text,
+    //   key: 'lyric',
+    //   duration: 0
+    // })
+    if (lyrics[index]?.text) {
+       setCurrentLyric(lyrics[index].text) //  更新歌词状态
+    }
   }
 
   //歌曲进度条结束自动播放下一首
@@ -183,7 +187,7 @@ const AppPlayerBar: FC<IProps> = (props) => {
 
   return (
     <>
-     {contextHolder}
+      {/* {contextHolder} */}
       <PlayBarWrapper className="sprite_playbar">
         <div className="content wrap-v2">
           <BarControl isPlaying={isPlaying}>
@@ -238,20 +242,25 @@ const AppPlayerBar: FC<IProps> = (props) => {
               <button className="btn sprite_playbar share"></button>
             </div>
             <div className="right sprite_playbar">
-              <button className="btn sprite_playbar volum"></button>
+              <button className="btn sprite_playbar volume"></button>
               <button
                 className="btn sprite_playbar loop"
                 onClick={handleChangePlayMode}
               ></button>
               <button className="btn sprite_playbar playlist"></button>
+              <button className="btn quality"></button>
             </div>
           </BarOperator>
         </div>
+
         <audio
           ref={audioRef}
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleTimeEnde}
         />
+        <div className={`lyric-display ${isPlaying ? 'active' : ''}`}>
+          {currentLyric}
+        </div>
       </PlayBarWrapper>
     </>
   )
